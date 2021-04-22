@@ -16,13 +16,13 @@ public class FileUploadService {
         this.fileMapper = fileMapper;
     }
 
-    public int saveFile(MultipartFile file, Integer userId) throws IOException {
-        File filetosave = new File (file.getName(),file.getSize(),file.getBytes(),file.getContentType(),userId);
+    public int saveFile(MultipartFile file, Integer userid) throws IOException {
+        File filetosave = new File (file.getName(),file.getSize(),file.getBytes(),file.getContentType(),userid);
         return fileMapper.saveFile(filetosave);
     }
 
-    public List<File> getFileList(Integer userId){
-        return fileMapper.getFileList(userId);
+    public List<File> getFileList(Integer userid){
+        return fileMapper.getFileList(userid);
     }
 
 }

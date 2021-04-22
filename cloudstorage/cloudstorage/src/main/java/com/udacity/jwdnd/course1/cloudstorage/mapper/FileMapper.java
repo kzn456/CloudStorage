@@ -10,10 +10,10 @@ import java.util.*;
 
 @Mapper
 public interface FileMapper {
-    @Select("SELECT * FROM FILES WHERE userid = #{userId}")
-    List<File> getFileList(Integer userId);
+    @Select("SELECT * FROM FILES WHERE userid = #{userid}")
+    List<File> getFileList(Integer userid);
 
-    @Insert("INSERT INTO FILES (fileName, fileSize, fileData ,contentType, userid) VALUES (#{fileName}, #{fileSize}, #{fileData}, #{contentType}, #{userId})")
+    @Insert("INSERT INTO FILES (fileName, fileSize, fileData ,contentType, userid) VALUES (#{fileName}, #{fileSize}, #{fileData}, #{contentType}, #{userid})")
     @Options(useGeneratedKeys = true, keyProperty = "fileId")
     int saveFile(File file);
 }
