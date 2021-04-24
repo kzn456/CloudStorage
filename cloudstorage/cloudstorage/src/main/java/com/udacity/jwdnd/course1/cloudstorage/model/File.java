@@ -6,14 +6,15 @@ public class File {
     private long fileSize;
     private byte[] fileData;
     private String contentType;
-    private int userid;
+    private Integer userid;
 
-    public File(String fileName, long fileSize, byte[] fileData, String contentType, Integer userid) {
+    public File(int fileId, String fileName, String contentType, long fileSize, Integer userid, byte[] fileData) {
+        this.fileId = fileId;
         this.fileName = fileName;
-        this.fileSize = fileSize;
-        this.fileData = fileData;
         this.contentType = contentType;
+        this.fileSize = fileSize;
         this.userid = userid;
+        this.fileData = fileData;
     }
 
     public int getFileId() {
