@@ -31,12 +31,16 @@ public class NoteController {
         User user = userService.getUser(username);
 
         try {
-            if (user != null) {
+            if (note.getNoteId() == null) {
                 note.setUserid(user.getUserId());
                 noteService.saveNote(note);
                 redirectAttributes.addAttribute("success", true );
                 redirectAttributes.addAttribute("message", "New note " +
                         note.getNoteTitle() + "created!");
+            }
+            else {
+                note.setUserid(user.getUserId());
+                noteService.updateNote(note);
             }
             } catch (Exception e){
             redirectAttributes.addAttribute("error", true);
