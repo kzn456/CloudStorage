@@ -28,4 +28,14 @@ public class FileService {
         fileMapper.deleteFile(fileId);
     }
 
+    public File getFilebyFileId(int fileId){
+        return fileMapper.getFilebyFileId(fileId);
+    }
+
+    public boolean isFileNameDuplicate(String fileName, Integer userid){
+        List<String> fileNameList = fileMapper.getFileNamebyUserId(userid);
+        return fileNameList.contains(fileName);
+
+    }
+
 }
